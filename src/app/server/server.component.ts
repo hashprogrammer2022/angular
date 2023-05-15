@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
     styleUrls:['./server.component.css']
 })
 export class ServerComponent{
-
+    name = "massiwani - server";
+    id = 10;
+    status = 'online';
 }
