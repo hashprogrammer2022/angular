@@ -11,9 +11,12 @@
         type="text" 
         name="username" 
         id=""
-        [(ngModel)]="username"
+        [(ngModel)]="username" 
     >
-    <button (click)="onUpdatedUsername()">Update</button>
+    <button class="btn"
+    (click)="onUpdatedUsername()"
+    [disabled]="onInputChange()"
+    >Update</button>
 </div>
 <p>Current username: {{username}}</p>
 <p>List of usernames: {{this.usernames.join(", ")}}</p>
