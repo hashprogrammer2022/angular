@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AssignementComponent {
   username = "";
-  outUsername="";
+  usernames:string[] = [];
   
   onUpdatedUsername(){
-    
-    this.outUsername += this.outUsername !== "" ? ", " + this.username : this.username ;
+    this.usernames.push(this.username);
     this.username = "";
   }
 }

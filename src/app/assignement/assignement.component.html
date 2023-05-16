@@ -16,4 +16,4 @@
     <button (click)="onUpdatedUsername()">Update</button>
 </div>
 <p>Current username: {{username}}</p>
-<p>List of usernames: {{outUsername}}</p>
+<p>List of usernames: {{this.usernames.join(", ")}}</p>
