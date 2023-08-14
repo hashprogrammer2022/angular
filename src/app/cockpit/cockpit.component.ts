@@ -12,14 +12,14 @@ export class CockpitComponent {
   @Output() onServerCreated = new EventEmitter<{name:string, content:string}>();
   @Output() onBlueprintCreated = new EventEmitter<{name:string, content:string}>();
 
-  newServerName = '';
-  newServerContent = '';
+  //newServerName = '';
+  //newServerContent = '';
 
-  createServer() {
-    this.onServerCreated.emit({name: this.newServerName, content:this.newServerContent});
+  createServer(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+    this.onServerCreated.emit({name: nameInput.value, content:contentInput.value});
   }
 
-  createBlueprint() {
-    this.onBlueprintCreated.emit({name: this.newServerName, content:this.newServerContent});
+  createBlueprint(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+    this.onBlueprintCreated.emit({name: nameInput.value, content: contentInput.value});
   }
 }
