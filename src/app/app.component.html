@@ -17,7 +17,7 @@
       <ng-template [ngIf]="onlyOdd || !onlyOdd">
         <p>Only odd</p>
         <ul class="list-group">
-          <div *ngIf="onlyOdd">
+          <div *appUnless="onlyOdd">
             <li
               class="list-group-item"
               *ngFor="let num of oddNumbers;"
@@ -29,7 +29,7 @@
             </li>
           </div>
           
-          <div *ngIf="!onlyOdd">
+          <!-- <div *ngIf="!onlyOdd">
             <li
               class="list-group-item"
               *ngFor="let num of evenNumbers;"
@@ -39,8 +39,14 @@
               {{ num }}
               
             </li>
+          </div> -->
+          <div [ngSwitch]="value">
+            <p *ngSwitchCase="5">Value is 5</p>
+            <p *ngSwitchCase="50">Value is 50</p>
+            <p *ngSwitchCase="500">Value is 500</p>
+            <p *ngSwitchCase="5000">Value is 5000</p>
+            <p *ngSwitchDefault>Value is 100000000 (default)</p>
           </div>
-          
         </ul>
       </ng-template>
       <p appBasicHighlight  >I will be yellow with the help of directive</p>
