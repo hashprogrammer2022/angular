@@ -7,14 +7,44 @@
       <br><br>
       <ul class="list-group">
         <li
-          class="list-group-item">
+          class="list-group-item"
+          *ngFor="let num of numbers;"
+        >
+          {{ num }}
+
         </li>
       </ul>
-      <ng-template [ngIf]="onlyOdd">
+      <ng-template [ngIf]="onlyOdd || !onlyOdd">
         <p>Only odd</p>
+        <ul class="list-group">
+          <div *ngIf="onlyOdd">
+            <li
+              class="list-group-item"
+              *ngFor="let num of oddNumbers;"
+              [ngClass]="{odd: onlyOdd}"
+              [ngStyle]="{backgroundColor: num % 2 !== 0 ? 'greenYellow' : 'transparent'}"
+            >
+              {{ num }}
+              
+            </li>
+          </div>
+          
+          <div *ngIf="!onlyOdd">
+            <li
+              class="list-group-item"
+              *ngFor="let num of evenNumbers;"
+              [ngClass]="{even: !onlyOdd}"
+              [ngStyle]="{backgroundColor: num % 2 == 0 ? 'yellow' : 'transparent'}"
+            >
+              {{ num }}
+              
+            </li>
+          </div>
+          
+        </ul>
       </ng-template>
-      <p appBasicHighlight>I will be yellow with the help of directive</p>
-      <p appBetterHighlight>I will be yellow with the help of directive</p>
+      <p appBasicHighlight  >I will be yellow with the help of directive</p>
+      <p appBetterHighlight [defaultColor]="'purple'" [highlightColor]="'orange'">I will be yellow with the help of directive</p>
     </div>
     
   </div>
